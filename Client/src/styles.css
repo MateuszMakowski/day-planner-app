@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0;
+    }
+
+    button, h3, li, p {
+     /* font-family: Roboto, "Helvetica Neue", sans-serif; } */
+     font-family: "Neue Haas Grotesk Text Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    
+    }
+    button, h3 {
+        font-weight: 500;
+    }
+    
+    li, input, p {
+        font-weight: 400;
+    }

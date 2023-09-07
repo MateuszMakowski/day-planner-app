@@ -1,0 +1,50 @@
+<div class="footer">
+  <div class="settings"></div>
+  <div class="todo">
+    <button class="todo-btn" (click)="isTodoDialogOpen = !isTodoDialogOpen">
+      Todo
+    </button>
+    <div class="todo-dialog" *ngIf="isTodoDialogOpen">
+      <div class="todo-header">
+        <h3 class="todo-folder">Today</h3>
+      </div>
+      <div class="first-todo" *ngIf="getTodos().controls.length === 0">
+        <p>No todos yet</p>
+        <button
+          (click)="isFirstTodoBtnClicked = true"
+          *ngIf="!isFirstTodoBtnClicked"
+        >
+          New Todo
+        </button>
+      </div>
+      <form [formGroup]="todoFormGroup">
+        <div class="todo-body" formArrayName="todosFormArray">
+          <li
+            *ngFor="let item of getTodos().controls; let i = index"
+            formGroupName="{{ i }}"
+          >
+            <input
+              type="checkbox"
+              formControlName="completionFlag"
+              (click)="updateCompletionState(item.value.id)"
+            />
+            <span>{{ item.value.name }}</span>
+            <button class="todo-remove-btn" (click)="removeTodo(item.value.id)">
+              <mat-icon>close</mat-icon>
+            </button>
+          </li>
+        </div>
+      </form>
+      <div class="todo-input" *ngIf="isFirstTodoBtnClicked">
+        <input
+          autofocus
+          placeholder="New Todo"
+          name="name"
+          [(ngModel)]="taskName"
+          (keydown.enter)="addTodo(taskName)"
+          autocomplete="off"
+        />
+      </div>
+    </div>
+  </div>
+</div>

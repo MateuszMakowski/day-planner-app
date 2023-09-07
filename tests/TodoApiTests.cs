@@ -30,19 +30,6 @@ public class TodoApiTests
     }
 
     [Fact]
-    public async void GetById_ShouldReturnSelectedTodo()
-    {
-        // Arrange
-        _mockService.GetAsync("2").Returns(TestHelpers.InitialTodos().FirstOrDefault(x => x.Id == "2"));
-
-        // Act
-        var result = await _todoController.Get("2");
-
-        // Assert 
-        Assert.Equal("Sleep", result.Name);
-    }
-
-    [Fact]
     public async void Create_ShouldReturnCreatedTodo()
     {
         var date = DateTime.Now.ToString("yyyy'-'MM'-'dd");
@@ -60,23 +47,6 @@ public class TodoApiTests
 
         // Assert
         await _mockService.Received(1).CreateAsync(newTodo);
-    }
-
-    [Fact]
-    public async void Update_ShouldUpdateExistingTodo()
-    {
-        // Arrange
-        var updatedTodo = new Todo()
-        {
-            Name = "Eat",
-            CompletionFlag = true,
-        };
-
-        // Act
-        await _todoController.Update("1", updatedTodo);
-
-        // Assert
-        await _mockService.Received(1).UpdateAsync("1", updatedTodo);
     }
 
     [Fact]

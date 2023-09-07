@@ -17,13 +17,11 @@ public class TodoService : ITodoService
     }
     public async Task<List<Todo>> GetAsync() => await _tasksCollection.Find(_ => true).ToListAsync();
 
-    public async Task<Todo?> GetAsync(string id) => await _tasksCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
     public async Task CreateAsync(Todo todo)
     {
         todo.Date = DateTime.Now.ToString("yyyy'-'MM'-'dd");
         await _tasksCollection.InsertOneAsync(todo);
     }
-    public async Task UpdateAsync(string id, Todo updatedTodo) => await _tasksCollection.ReplaceOneAsync(x => x.Id == id, updatedTodo);
 
     public async Task UpdateNameAsync(string id, string name) =>
         await _tasksCollection.UpdateOneAsync(x => x.Id == id, Builders<Todo>.Update.Set("Name", name));

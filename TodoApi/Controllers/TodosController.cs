@@ -16,27 +16,11 @@ public class TodosController : ControllerBase
     [HttpGet]
     public async Task<List<Todo>> Get() => await _todoService.GetAsync();
 
-    [ActionName("")]
-    [HttpGet("{id:length(24)}")]
-    public async Task<Todo> Get(string id)
-    {
-        var todo = await _todoService.GetAsync(id);
-
-        return todo;
-    }
-
     [HttpPost]
     public async Task<IActionResult> Create(Todo newTodo)
     {
         await _todoService.CreateAsync(newTodo);
         return CreatedAtAction(nameof(Get), new { id = newTodo.Id }, newTodo);
-    }
-
-    [HttpPut("Replace")]
-    public async Task<IActionResult> Update(string id, Todo updatedTodo)
-    {
-        await _todoService.UpdateAsync(id, updatedTodo);
-        return NoContent();
     }
 
     [HttpPut("Name")]

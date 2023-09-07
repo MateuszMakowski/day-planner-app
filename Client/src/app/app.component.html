@@ -1,0 +1,19 @@
+<div class="header">
+  <div class="chat-gpt"></div>
+  <div class="weather"></div>
+</div>
+<div class="body">
+  <div class="time"></div>
+  <div class="main-focus"></div>
+  <div class="quote"></div>
+</div>
+<div class="footer">
+  <app-todo
+    *ngIf="isLoadOfTodosComplete"
+    [todos]="todos"
+    [createdId]="createdId"
+    (addTodoEvent)="addTodo($event)"
+    (removeTodoEvent)="removeTodo($event)"
+    (updateTodoEvent)="updateTodo($event)"
+  ></app-todo>
+</div>

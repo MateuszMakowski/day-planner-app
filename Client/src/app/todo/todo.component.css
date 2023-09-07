@@ -1,0 +1,84 @@
+.todo-btn {
+    position: absolute;
+    right: 1em;
+    bottom: 1em;
+    cursor: pointer;
+    color: rgba(75, 75, 75, 0.85);
+    font-size: 120%;
+    background-color: transparent;
+    border: none;
+}
+.todo-btn:hover {
+    color: rgba(50, 50, 50, 0.85);
+}
+
+.todo-dialog {
+    background-color: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    right: 1em;
+    bottom: 3em;
+    padding-bottom: 3em;
+    width: 20%;
+    border-radius: 0.5em;
+}
+
+.todo-folder {
+    color: rgba(255, 255, 255, 0.9);
+    margin-left: 1em;
+}
+
+.todo-input input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: rgba(255, 255, 255, 0.85);
+    position: absolute;
+    bottom: 1em;
+    left: 1em;
+}
+
+.todo-body li  {
+    list-style: none;
+    padding-inline: 1em;
+    color: rgba(255, 255, 255, 0.90);
+}
+
+.todo-body li:hover  {
+    .todo-remove-btn{
+    color: rgba(255, 255, 255, 0.90);
+    }
+}
+
+.todo-remove-btn {
+    background: transparent;
+    color: rgba(255, 255, 255, 0);
+    position: absolute;
+    right: 1em;
+    border: none;
+    cursor: pointer;
+    .material-icons {
+        font-size: 15px;
+    }
+}
+
+.first-todo  {
+    text-align: center;
+    margin: 2em 0em 2em 0em;
+}
+
+.first-todo p {
+    /* color: rgba(255, 255, 255, 0.90); */
+    color: rgba(75, 75, 75, 0.85);
+}
+
+.first-todo button {
+    border-radius: 2em;
+    border: none;
+    background: rgb(238, 180, 98);
+    color: rgba(255, 255, 255, 0.90);
+    padding: 0.5em 1.5em 0.5em 1.5em;
+}
+
+.first-todo button:hover {
+    background: rgb(238, 180, 98, 0.9);
+}
